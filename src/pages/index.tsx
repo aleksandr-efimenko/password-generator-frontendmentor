@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import { JetBrains_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import PasswordGenerator from "../../components/PasswordGenerator";
 
 const jetBrains = JetBrains_Mono({ subsets: ["latin"], weight: "700" });
 
@@ -15,7 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={jetBrains.className}>
-        <h1 className={styles.title}>Password Generator</h1>
+        <div>
+          <h1 className={styles.title}>Password Generator</h1>
+          <PasswordGenerator />
+        </div>
       </main>
     </>
   );
