@@ -1,0 +1,15 @@
+.btn {
+    background-color: var(--neon-green);
+    text-transform: uppercase;
+    border: none;
+    font-size: var(--fs-body-desktop);
+    line-height: var(--lh-body-desktop);
+    font-weight: var(--fw-bold);
+    display: flex;
+    gap: 2.4rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 6.5rem;
+}
+
