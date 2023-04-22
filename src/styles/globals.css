@@ -1,5 +1,5 @@
 :root {
-  --dark-gray: hsla(247, 11%, 15%, 1);
+  --dark-gray: hsla(247, 15%, 15%, 1);
   --gray: hsla(252, 9%, 53%, 1);
   --almost-white: hsla(252, 11%, 91%, 1);
   --very-dark-gray: hsla(248, 15%, 11%, 1);
@@ -20,6 +20,11 @@
 
   --fs-body-mobile: 1.6rem;
   --lh-body-mobile: 2.1rem;
+
+  --fs-body: var(--fs-body-desktop);
+  --lh-body: var(--lh-body-desktop);
+  
+  --fw-bold: 700;
 }
 
 * {
@@ -34,4 +39,5 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--very-dark-gray);
 }

@@ -1,0 +1,19 @@
+.neon-green-checkbox-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  cursor: pointer;
+  color: var(--almost-white);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-bold);
+}
+
+.neon-green-checkbox-container label,
+.neon-green-checkbox-container input {
+  cursor: pointer;
+}
+
+.neon-green-checkbox-container label:hover {
+  color: var(--neon-green);
+}

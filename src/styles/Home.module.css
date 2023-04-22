@@ -1,0 +1,10 @@
+
+
+.title {
+    color: var(--gray);
+    font-size: var(--fs-heading-m);
+    line-height: var(--lh-heading-m);
+    text-align: center;
+    margin-bottom: 3.1rem;
+  }
+  

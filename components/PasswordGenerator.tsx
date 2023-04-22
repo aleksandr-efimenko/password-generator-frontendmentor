@@ -28,10 +28,12 @@ export default function PasswordGenerator() {
             setSettings((currentSettings) => ({ ...currentSettings, length }))
           }
         />
-        <NeonGreenCheckbox> Include Uppercase Letters </NeonGreenCheckbox>
-        <NeonGreenCheckbox> Include LowerCase Letters </NeonGreenCheckbox>
-        <NeonGreenCheckbox> Include Numbers Letters </NeonGreenCheckbox>
-        <NeonGreenCheckbox> Include Symbols Letters </NeonGreenCheckbox>
+        <div>
+            <NeonGreenCheckbox> Include Uppercase Letters </NeonGreenCheckbox>
+            <NeonGreenCheckbox> Include LowerCase Letters </NeonGreenCheckbox>
+            <NeonGreenCheckbox> Include Numbers Letters </NeonGreenCheckbox>
+            <NeonGreenCheckbox> Include Symbols Letters </NeonGreenCheckbox>
+        </div>
         <PasswordStrength />
         <NeonGreenButton> Generate </NeonGreenButton>
       </div>
