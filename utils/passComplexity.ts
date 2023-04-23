@@ -1,4 +1,11 @@
-export function determinePasswordComplexity(password: string): 0 | 1 | 2 | 3 {
-  let complexity = 0;
-  return 0;
+export enum PassStrength {
+  TooWeak,
+  Weak,
+  Medium, 
+  Strong,
+}
+
+export function determinePasswordComplexity(password: string): PassStrength {
+  let complexity = PassStrength.Strong;
+  return complexity;
 }
