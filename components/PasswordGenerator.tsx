@@ -33,10 +33,10 @@ export default function PasswordGenerator() {
           }
         />
         <div className={checkboxStyles["checkbox-container"]}>
-          <NeonGreenCheckbox> Include Uppercase Letters </NeonGreenCheckbox>
-          <NeonGreenCheckbox> Include LowerCase Letters </NeonGreenCheckbox>
-          <NeonGreenCheckbox> Include Numbers Letters </NeonGreenCheckbox>
-          <NeonGreenCheckbox> Include Symbols Letters </NeonGreenCheckbox>
+          <NeonGreenCheckbox>Include Uppercase Letters </NeonGreenCheckbox>
+          <NeonGreenCheckbox>Include LowerCase Letters </NeonGreenCheckbox>
+          <NeonGreenCheckbox>Include Numbers Letters </NeonGreenCheckbox>
+          <NeonGreenCheckbox>Include Symbols Letters </NeonGreenCheckbox>
         </div>
         <PasswordStrengthDetector complexity={determinePasswordComplexity(generatedPassword)} />
         <NeonGreenButton> Generate </NeonGreenButton>

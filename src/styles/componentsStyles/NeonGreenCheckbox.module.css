@@ -24,3 +24,22 @@
 .neon-green-checkbox-item label:hover {
   color: var(--neon-green);
 }
+
+.neon-checkbox {
+  margin-right: 2.4rem;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border: .2rem solid var(--almost-white);
+  transform: translateY(.3rem);
+}
+
+.neon-checkbox:checked {
+  border: .2rem solid var(--neon-green);
+  background: url('/images/icon-check.svg') no-repeat center var(--neon-green);
+  background-size: 1.2rem;
+}
+
+.neon-checkbox:active {
+  border: .2rem solid var(--neon-green);
+}
