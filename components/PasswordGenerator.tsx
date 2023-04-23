@@ -25,6 +25,8 @@ export default function PasswordGenerator() {
       <PasswordOutput generatedPassword={generatedPassword} />
       <div className={passGenStyles["pass-input-container"]}>
         <CharacterLengthSlider
+        minLen={0}
+        maxLen={20}
           length={settings.length}
           setLength={(length: number) =>
             setSettings((currentSettings) => ({ ...currentSettings, length }))
