@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import PasswordOutput from "./PasswordOutput";
 import passGenStyles from "@/styles/componentsStyles/PasswordGenerator.module.css";
-import PasswordStrength from "./PasswordStrength";
+import PasswordStrengthDetector from "./PasswordStrengthDetector";
 import CharacterLengthSlider from "./CharacterLengthSlider";
 import NeonGreenButton from "./NeonGreenButton";
 import NeonGreenCheckbox from "./NeonGreenCheckbox";
+import checkboxStyles from "@/styles/componentsStyles/NeonGreenCheckbox.module.css";
+import { determinePasswordComplexity } from "../utils/passComplexity";
 
 export default function PasswordGenerator() {
   const [generatedPassword, setGeneratedPassword] =
-    React.useState<string>("PTx1f5DaFX");
+    useState<string>("PTx1f5DaFX");
 
-  const [settings, setSettings] = React.useState({
+  const [settings, setSettings] = useState({
     length: 10,
     uppercase: true,
     lowercase: true,
@@ -28,13 +30,13 @@ export default function PasswordGenerator() {
             setSettings((currentSettings) => ({ ...currentSettings, length }))
           }
         />
-        <div>
-            <NeonGreenCheckbox> Include Uppercase Letters </NeonGreenCheckbox>
-            <NeonGreenCheckbox> Include LowerCase Letters </NeonGreenCheckbox>
-            <NeonGreenCheckbox> Include Numbers Letters </NeonGreenCheckbox>
-            <NeonGreenCheckbox> Include Symbols Letters </NeonGreenCheckbox>
+        <div className={checkboxStyles["checkbox-container"]}>
+          <NeonGreenCheckbox> Include Uppercase Letters </NeonGreenCheckbox>
+          <NeonGreenCheckbox> Include LowerCase Letters </NeonGreenCheckbox>
+          <NeonGreenCheckbox> Include Numbers Letters </NeonGreenCheckbox>
+          <NeonGreenCheckbox> Include Symbols Letters </NeonGreenCheckbox>
         </div>
-        <PasswordStrength />
+        <PasswordStrengthDetector complexity={determinePasswordComplexity(generatedPassword)} />
         <NeonGreenButton> Generate </NeonGreenButton>
       </div>
     </div>
