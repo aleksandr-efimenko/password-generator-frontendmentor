@@ -10,7 +10,7 @@ import { determinePasswordComplexity } from "../utils/passComplexity";
 
 export default function PasswordGenerator() {
   const [generatedPassword, setGeneratedPassword] =
-    useState<string>("PTx1f5DaFX");
+    useState<string>("");
 
   const [settings, setSettings] = useState({
     length: 10,

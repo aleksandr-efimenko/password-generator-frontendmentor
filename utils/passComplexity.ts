@@ -6,6 +6,6 @@ export enum PassStrength {
 }
 
 export function determinePasswordComplexity(password: string): PassStrength {
-  let complexity = PassStrength.Strong;
+  let complexity = PassStrength.Weak;
   return complexity;
 }

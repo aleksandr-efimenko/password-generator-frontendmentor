@@ -4,7 +4,7 @@ import { PassStrength } from "../utils/passComplexity";
 
 // Create an array of strings from the PassStrength enum
 // ["too weak", "weak", "medium", "strong"]
-// to add new strength, just add it to the enum and a class with hyphenated name
+// to add new strength, just add it to the enum and a color class with hyphenated name
 const strengthsArr = Object.keys(PassStrength)
   .filter((k) => typeof PassStrength[k as any] === "number")
   // transfrom from camelCase -> "camel-case"
@@ -30,6 +30,7 @@ export default function PasswordStrength({
       <div className={passDetectorStyles["strength-indicator-container"]}>
         <p className={passDetectorStyles["strength-text"]}>
           {strengthsArr[complexity].replace("-", " ")}
+          {complexity === PassStrength.TooWeak && "!"}
         </p>
         <div className={passDetectorStyles["colored-bar-container"]}>
           {strengthsArr.map((_, index) => (

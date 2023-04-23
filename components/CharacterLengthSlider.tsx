@@ -2,17 +2,19 @@ import React from "react";
 import charLenStyles from "@/styles/componentsStyles/CharacterLengthSlider.module.css";
 
 export default function CharacterLengthSlider({
+  minLen,
+  maxLen,
   length,
   setLength,
 }: {
+  minLen: number;
+  maxLen: number;
   length: number;
   setLength: Function;
 }) {
   const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLength(e.target.value);
   };
-  const min = 0;
-  const max = 20;
   return (
     <div className={charLenStyles["character-length-container"]}>
       <div className={charLenStyles["text-container"]}>
@@ -22,15 +24,15 @@ export default function CharacterLengthSlider({
       <input
         className={charLenStyles["range-input"]}
         type="range"
-        min={min}
-        max={max}
+        min={minLen}
+        max={maxLen}
         value={length}
         onChange={handleRangeChange}
         style={{
           background: `linear-gradient(to right, var(--neon-green) 0%,
             var(--neon-green) 
-             ${((length - min) / (max - min)) * 100}%, var(--almost-white) 
-             ${((length - min) / (max - min)) * 100}%, var(--almost-white) 
+             ${((length - minLen) / (maxLen - minLen)) * 100}%, var(--very-dark-gray) 
+             ${((length - minLen) / (maxLen - minLen)) * 100}%, var(--very-dark-gray) 
              100%)`,
         }}
       />
