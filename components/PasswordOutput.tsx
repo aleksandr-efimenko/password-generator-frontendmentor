@@ -42,6 +42,7 @@ export default function PasswordOutput({
         type="text"
         placeholder={placeholder}
         value={generatedPassword}
+        readOnly
       ></input>
       <div className={passOutputStyles["copy-btn-container"]}>
         {copiedPass && (

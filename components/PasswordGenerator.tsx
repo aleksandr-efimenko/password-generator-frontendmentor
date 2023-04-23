@@ -8,11 +8,40 @@ import NeonGreenCheckbox from "./NeonGreenCheckbox";
 import checkboxStyles from "@/styles/componentsStyles/NeonGreenCheckbox.module.css";
 import { determinePasswordComplexity } from "../utils/passComplexity";
 
-export default function PasswordGenerator() {
-  const [generatedPassword, setGeneratedPassword] =
-    useState<string>("");
+// Checkbox items
+const checkboxItems = [
+  {
+    id: "uppercase",
+    label: "Include Uppercase Letters",
+  },
+  {
+    id: "lowercase",
+    label: "Include Lowercase Letters",
+  },
+  {
+    id: "numbers",
+    label: "Include Numbers",
+  },
+  {
+    id: "symbols",
+    label: "Include Symbols",
+  },
+];
 
-  const [settings, setSettings] = useState({
+// Settings object type
+interface Settings {
+  length: number;
+  uppercase: boolean;
+  lowercase: boolean;
+  numbers: boolean;
+  symbols: boolean;
+  [key: string]: boolean | number;
+}
+
+export default function PasswordGenerator() {
+  const [generatedPassword, setGeneratedPassword] = useState<string>("");
+
+  const [settings, setSettings] = useState<Settings>({
     length: 10,
     uppercase: true,
     lowercase: true,
@@ -20,26 +49,44 @@ export default function PasswordGenerator() {
     symbols: false,
   });
 
+  // Helper function to update the settings object
+  function updateCheckbox(key: string) {
+    return function (e: React.ChangeEvent<HTMLInputElement>) {
+      setSettings((currentSettings) => ({
+        ...currentSettings,
+        [key]: e.target.checked,
+      }));
+    };
+  }
+
+  console.log(settings);
   return (
     <div className={passGenStyles["password-generator-container"]}>
       <PasswordOutput generatedPassword={generatedPassword} />
       <div className={passGenStyles["pass-input-container"]}>
         <CharacterLengthSlider
-        minLen={0}
-        maxLen={20}
+          minLen={0}
+          maxLen={20}
           length={settings.length}
           setLength={(length: number) =>
             setSettings((currentSettings) => ({ ...currentSettings, length }))
           }
         />
         <div className={checkboxStyles["checkbox-container"]}>
-          <NeonGreenCheckbox>Include Uppercase Letters </NeonGreenCheckbox>
-          <NeonGreenCheckbox>Include LowerCase Letters </NeonGreenCheckbox>
-          <NeonGreenCheckbox>Include Numbers Letters </NeonGreenCheckbox>
-          <NeonGreenCheckbox>Include Symbols Letters </NeonGreenCheckbox>
+          {checkboxItems.map((item) => (
+            <NeonGreenCheckbox
+              key={item.id}
+              isChecked={settings[item.id] as boolean}
+              setChecked={updateCheckbox(item.id)}
+            >
+              {item.label}
+            </NeonGreenCheckbox>
+          ))}
         </div>
-        <PasswordStrengthDetector complexity={determinePasswordComplexity(generatedPassword)} />
-        <NeonGreenButton> Generate </NeonGreenButton>
+        <PasswordStrengthDetector
+          complexity={determinePasswordComplexity(generatedPassword)}
+        />
+        <NeonGreenButton>Generate</NeonGreenButton>
       </div>
     </div>
   );

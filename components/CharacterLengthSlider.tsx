@@ -13,7 +13,7 @@ export default function CharacterLengthSlider({
   setLength: Function;
 }) {
   const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLength(e.target.value);
+    setLength(parseInt(e.target.value));
   };
   return (
     <div className={charLenStyles["character-length-container"]}>
