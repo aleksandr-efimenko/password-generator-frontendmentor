@@ -36,11 +36,8 @@
   background: var(--almost-white);
   cursor: pointer;
 }
+
 .range-input::-webkit-slider-thumb:hover {
-  background: var(--neon-green);
-  border: 0.2rem solid var(--almost-white);
-}
-.range-input::-webkit-slider-thumb:active {
   background: var(--very-dark-gray);
   border: 0.2rem solid var(--neon-green);
 }
@@ -60,6 +57,6 @@
     border: 0.2rem solid var(--almost-white);
   }
   .range-input::-moz-range-thumb:active {
-    background: var(--very-dark-gray);
+    background: var(--almost-white);
     border: 0.2rem solid var(--neon-green);
   }
