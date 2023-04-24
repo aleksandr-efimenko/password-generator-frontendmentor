@@ -1,8 +1,4 @@
-import React, {
-  ChangeEventHandler,
-  ComponentPropsWithoutRef,
-  useState,
-} from "react";
+import React, { ChangeEventHandler } from "react";
 import styles from "@/styles/componentsStyles/NeonGreenCheckbox.module.css";
 interface NeonGreenCheckboxProps extends React.ComponentPropsWithoutRef<"div"> {
   isChecked: boolean;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PasswordOutput from "./PasswordOutput";
 import passGenStyles from "@/styles/componentsStyles/PasswordGenerator.module.css";
 import PasswordStrengthDetector from "./PasswordStrengthDetector";
@@ -7,6 +7,10 @@ import NeonGreenButton from "./NeonGreenButton";
 import NeonGreenCheckbox from "./NeonGreenCheckbox";
 import checkboxStyles from "@/styles/componentsStyles/NeonGreenCheckbox.module.css";
 import { determinePasswordComplexity } from "../utils/passComplexity";
+import {
+  PasswordGeneratorSettings,
+  generatePassword,
+} from "../utils/generatePassword";
 
 // Checkbox items
 const checkboxItems = [
@@ -29,19 +33,11 @@ const checkboxItems = [
 ];
 
 // Settings object type
-interface Settings {
-  length: number;
-  uppercase: boolean;
-  lowercase: boolean;
-  numbers: boolean;
-  symbols: boolean;
-  [key: string]: boolean | number;
-}
 
 export default function PasswordGenerator() {
   const [generatedPassword, setGeneratedPassword] = useState<string>("");
 
-  const [settings, setSettings] = useState<Settings>({
+  const [settings, setSettings] = useState<PasswordGeneratorSettings>({
     length: 10,
     uppercase: true,
     lowercase: true,
@@ -58,6 +54,11 @@ export default function PasswordGenerator() {
       }));
     };
   }
+
+  //listen if settings change
+  useEffect(() => {
+    setGeneratedPassword(generatePassword(settings));
+  }, [settings]);
 
   console.log(settings);
   return (
@@ -86,7 +87,11 @@ export default function PasswordGenerator() {
         <PasswordStrengthDetector
           complexity={determinePasswordComplexity(generatedPassword)}
         />
-        <NeonGreenButton>Generate</NeonGreenButton>
+        <NeonGreenButton
+          onClick={() => setGeneratedPassword(generatePassword(settings))}
+        >
+          Generate
+        </NeonGreenButton>
       </div>
     </div>
   );
