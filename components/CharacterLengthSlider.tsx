@@ -18,7 +18,7 @@ export default function CharacterLengthSlider({
   return (
     <div className={charLenStyles["character-length-container"]}>
       <div className={charLenStyles["text-container"]}>
-        <p>Character Length</p>
+        <label htmlFor="range-input">Character Length</label>
         <p className={charLenStyles["current-len-value"]}>{length}</p>
       </div>
       <input
@@ -28,6 +28,7 @@ export default function CharacterLengthSlider({
         max={maxLen}
         value={length}
         onChange={handleRangeChange}
+        id="range-input"
         style={{
           background: `linear-gradient(to right, var(--neon-green) 0%,
             var(--neon-green) 

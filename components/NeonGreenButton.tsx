@@ -15,7 +15,7 @@ export default function NeonGreenButton(
       type="button"
     >
       {props.children}
-      <Image src={generateImg} alt="generate" width={11} height={12} />
+      <Image src={generateImg} alt="arrow icon for button generate" width={11} height={12} />
     </button>
   );
 }
