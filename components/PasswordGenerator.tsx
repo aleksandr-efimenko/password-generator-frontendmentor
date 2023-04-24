@@ -83,14 +83,16 @@ export default function PasswordGenerator() {
             </NeonGreenCheckbox>
           ))}
         </div>
-        <PasswordStrengthDetector
-          complexity={determinePasswordComplexity(generatedPassword)}
-        />
-        <NeonGreenButton
-          onClick={() => setGeneratedPassword(generatePassword(settings))}
-        >
-          Generate
-        </NeonGreenButton>
+        <div className={passGenStyles['indicator-btn-block']}>
+          <PasswordStrengthDetector
+            complexity={determinePasswordComplexity(generatedPassword)}
+          />
+          <NeonGreenButton
+            onClick={() => setGeneratedPassword(generatePassword(settings))}
+          >
+            Generate
+          </NeonGreenButton>
+        </div>
       </div>
     </div>
   );

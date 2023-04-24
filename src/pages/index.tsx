@@ -15,10 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={jetBrains.className}>
-        <div>
+        {/* <div> */}
           <h1 className={styles.title}>Password Generator</h1>
           <PasswordGenerator />
-        </div>
+        {/* </div> */}
       </main>
     </>
   );

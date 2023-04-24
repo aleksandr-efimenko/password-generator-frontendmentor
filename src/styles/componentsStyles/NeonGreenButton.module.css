@@ -3,8 +3,8 @@
   color: var(--dark-gray);
   text-transform: uppercase;
   border: none;
-  font-size: var(--fs-body-desktop);
-  line-height: var(--lh-body-desktop);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   font-weight: var(--fw-bold);
   display: flex;
   gap: 2.4rem;
@@ -32,4 +32,11 @@
 }
 .btn:active img {
   filter: none;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    min-height: 5.6rem;
+    gap: 1.6rem;
+  }
 }

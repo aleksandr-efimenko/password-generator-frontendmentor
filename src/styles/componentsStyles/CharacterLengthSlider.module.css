@@ -60,3 +60,10 @@
     background: var(--almost-white);
     border: 0.2rem solid var(--neon-green);
   }
+
+  @media screen and (max-width: 768px) {
+    .character-length-container {
+      gap: 1.3rem;
+    }
+  }
+    

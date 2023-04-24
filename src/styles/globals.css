@@ -9,22 +9,34 @@
   --yellow: hsla(42, 91%, 69%, 1);
 
   font-size: 10px;
-  --fs-heading-l: 3.2rem;
-  --lh-heading-l: 4.2rem;
+  --fw-bold: 700;
+  
+  /* heading large */
+  --fs-heading-l-desktop: 3.2rem;
+  --fs-heading-l-mobile: 2.4rem;
+  --fs-heading-l: var(--fs-heading-l-desktop);
 
-  --fs-heading-m: 2.4rem;
-  --lh-heading-m: 3.2rem;
+  --lh-heading-l-desktop: 4.2rem;
+  --lh-heading-l-mobile: 3.2rem;
+  --lh-heading-l: var(--lh-heading-l-desktop);
 
+  /* heading medium */
+  --fs-heading-m-desktop: 2.4rem;
+  --fs-heading-m-mobile: 1.8rem;
+  --fs-heading-m: var(--fs-heading-m-desktop);
+
+  --lh-heading-m-desktop: 3.2rem;
+  --lh-heading-m-mobile: 2.4rem;
+  --lh-heading-m: var(--lh-heading-m-desktop);
+
+  /* body text */
   --fs-body-desktop: 1.8rem;
   --lh-body-desktop: 2.4rem;
+  --fs-body: var(--fs-body-desktop);
 
   --fs-body-mobile: 1.6rem;
   --lh-body-mobile: 2.1rem;
-
-  --fs-body: var(--fs-body-desktop);
   --lh-body: var(--lh-body-desktop);
-  
-  --fw-bold: 700;
 }
 
 * {
@@ -37,7 +49,19 @@ main {
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--very-dark-gray);
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --fs-heading-l: var(--fs-heading-l-mobile);
+    --lh-heading-l: var(--lh-heading-l-mobile);
+    --fs-heading-m: var(--fs-heading-m-mobile);
+    --lh-heading-m: var(--lh-heading-m-mobile);
+    --fs-body: var(--fs-body-mobile);
+    --lh-body: var(--lh-body-mobile);
+  }
 }

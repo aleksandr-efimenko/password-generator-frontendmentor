@@ -43,3 +43,13 @@
 .neon-checkbox:active {
   border: .2rem solid var(--neon-green);
 }
+
+@media (max-width: 768px) {
+  .checkbox-container {
+    gap: 1.6rem;
+  }
+  .neon-checkbox {
+    margin-right: 2rem;
+  }
+
+}
