@@ -25,6 +25,7 @@ export function determinePasswordComplexity(password: string): PassStrength {
   }
   if (numbersRegex.test(password)) {
     entropy += numbersString.length;
+    console.log(entropy);
   }
   if (symbolsRegex.test(password)) {
     entropy += symbolsString.length;
@@ -32,13 +33,14 @@ export function determinePasswordComplexity(password: string): PassStrength {
 
   const passwordEntropy = Math.log2(entropy) * password.length;
 
-  if (passwordEntropy < 28) {
+  console.log(Math.log2(entropy) * password.length)
+  if (passwordEntropy < 40) {
     return PassStrength.TooWeak;
   }
-  if (passwordEntropy < 36) {
+  if (passwordEntropy < 60) {
     return PassStrength.Weak;
   }
-  if (passwordEntropy < 60) {
+  if (passwordEntropy < 80) {
     return PassStrength.Medium;
   }
   return PassStrength.Strong;
