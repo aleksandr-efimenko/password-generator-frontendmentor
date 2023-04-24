@@ -5,7 +5,10 @@ export enum PassStrength {
   Strong,
 }
 
-export function determinePasswordComplexity(password: string): PassStrength {
+export function determinePasswordComplexity(password: string): PassStrength | undefined {
+  if (password.length === 0) {
+    return undefined;
+  }
   const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
   const uppercaseLetters = lowercaseLetters.toUpperCase();
   const numbersString = "0123456789";
@@ -25,7 +28,6 @@ export function determinePasswordComplexity(password: string): PassStrength {
   }
   if (numbersRegex.test(password)) {
     entropy += numbersString.length;
-    console.log(entropy);
   }
   if (symbolsRegex.test(password)) {
     entropy += symbolsString.length;
@@ -33,7 +35,6 @@ export function determinePasswordComplexity(password: string): PassStrength {
 
   const passwordEntropy = Math.log2(entropy) * password.length;
 
-  console.log(Math.log2(entropy) * password.length)
   if (passwordEntropy < 40) {
     return PassStrength.TooWeak;
   }

@@ -22,14 +22,16 @@ const strengthsArr = Object.keys(PassStrength)
 export default function PasswordStrength({
   complexity,
 }: {
-  complexity: PassStrength;
+  complexity: PassStrength | undefined;
 }) {
   return (
     <div className={passDetectorStyles["pass-strength-detector-container"]}>
       <p>STRENGTH</p>
       <div className={passDetectorStyles["strength-indicator-container"]}>
         <p className={passDetectorStyles["strength-text"]}>
-          {strengthsArr[complexity].replace("-", " ")}
+          {complexity !== undefined
+            ? strengthsArr[complexity].replace("-", " ")
+            : ""}
           {complexity === PassStrength.TooWeak && "!"}
         </p>
         <div className={passDetectorStyles["colored-bar-container"]}>
@@ -38,8 +40,10 @@ export default function PasswordStrength({
               key={index}
               className={`${passDetectorStyles["strength-colored-bar"]}
               ${
-                index <= complexity
-                  ? passDetectorStyles[`${strengthsArr[complexity]}`]
+                complexity !== undefined
+                  ? index <= complexity
+                    ? passDetectorStyles[`${strengthsArr[complexity]}`]
+                    : ""
                   : ""
               }
             }`}
