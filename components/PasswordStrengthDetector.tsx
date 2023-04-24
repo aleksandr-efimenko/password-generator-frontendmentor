@@ -8,7 +8,7 @@ import { PassStrength } from "../utils/passComplexity";
 const strengthsArr = Object.keys(PassStrength)
   .filter((k) => typeof PassStrength[k as any] === "number")
   // transfrom from camelCase -> "camel-case"
-  .map((el, index) => {
+  .map((el) => {
     const arr = el.split("");
     const newArr = arr.map((char, index) => {
       if (char === char.toUpperCase()) {

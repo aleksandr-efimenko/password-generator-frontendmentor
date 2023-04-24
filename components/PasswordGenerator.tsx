@@ -60,7 +60,6 @@ export default function PasswordGenerator() {
     setGeneratedPassword(generatePassword(settings));
   }, [settings]);
 
-  console.log(settings);
   return (
     <div className={passGenStyles["password-generator-container"]}>
       <PasswordOutput generatedPassword={generatedPassword} />
